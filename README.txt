@@ -1,6 +1,8 @@
 ===FARMING MOD for MINETEST-C55===
 by PilzAdam
 
+Extended Version
+
 Introduction: 
 This mod adds farming to Minetest.
 
