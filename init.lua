@@ -11,6 +11,9 @@ function farming:add_plant(full_grown, names, interval, chance)
 				return
 			end
 			pos.y = pos.y+1
+			if not minetest.env:get_node_light(pos) then
+				return
+			end
 			if minetest.env:get_node_light(pos) < 8 then
 				return
 			end
@@ -44,6 +47,9 @@ function farming:generate_tree(pos, trunk, leaves, underground, replacements)
 		end
 	end
 	pos.y = pos.y+1
+	if not minetest.env:get_node_light(pos) then
+		return
+	end
 	if ret or minetest.env:get_node_light(pos) < 8 then
 		return
 	end
