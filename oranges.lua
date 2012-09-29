@@ -1,10 +1,10 @@
-minetest.register_craftitem("farming:orange_seed", {
+minetest.register_craftitem("farming_plus:orange_seed", {
 	description = "Orange Seeds",
 	inventory_image = "farming_orange_seed.png",
 	on_place = function(itemstack, placer, pointed_thing)
 		local above = minetest.env:get_node(pointed_thing.above)
 		if above.name == "air" then
-			above.name = "farming:orange_1"
+			above.name = "farming_plus:orange_1"
 			minetest.env:set_node(pointed_thing.above, above)
 			itemstack:take_item(1)
 			return itemstack
@@ -12,7 +12,7 @@ minetest.register_craftitem("farming:orange_seed", {
 	end
 })
 
-minetest.register_node("farming:orange_1", {
+minetest.register_node("farming_plus:orange_1", {
 	paramtype = "light",
 	walkable = false,
 	drawtype = "plantlike",
@@ -28,7 +28,7 @@ minetest.register_node("farming:orange_1", {
 	sounds = default.node_sound_leaves_defaults(),
 })
 
-minetest.register_node("farming:orange_2", {
+minetest.register_node("farming_plus:orange_2", {
 	paramtype = "light",
 	walkable = false,
 	drawtype = "plantlike",
@@ -44,7 +44,7 @@ minetest.register_node("farming:orange_2", {
 	sounds = default.node_sound_leaves_defaults(),
 })
 
-minetest.register_node("farming:orange_3", {
+minetest.register_node("farming_plus:orange_3", {
 	paramtype = "light",
 	walkable = false,
 	drawtype = "plantlike",
@@ -60,7 +60,7 @@ minetest.register_node("farming:orange_3", {
 	sounds = default.node_sound_leaves_defaults(),
 })
 
-minetest.register_node("farming:orange", {
+minetest.register_node("farming_plus:orange", {
 	paramtype = "light",
 	walkable = false,
 	drawtype = "plantlike",
@@ -68,22 +68,22 @@ minetest.register_node("farming:orange", {
 	drop = {
 		max_items = 6,
 		items = {
-			{ items = {'farming:orange_seed'} },
-			{ items = {'farming:orange_seed'}, rarity = 2},
-			{ items = {'farming:orange_seed'}, rarity = 5},
-			{ items = {'farming:orange_item'} },
-			{ items = {'farming:orange_item'}, rarity = 2 },
-			{ items = {'farming:orange_item'}, rarity = 5 }
+			{ items = {'farming_plus:orange_seed'} },
+			{ items = {'farming_plus:orange_seed'}, rarity = 2},
+			{ items = {'farming_plus:orange_seed'}, rarity = 5},
+			{ items = {'farming_plus:orange_item'} },
+			{ items = {'farming_plus:orange_item'}, rarity = 2 },
+			{ items = {'farming_plus:orange_item'}, rarity = 5 }
 		}
 	},
 	groups = {snappy=3, flammable=2, not_in_creative_inventory=1},
 	sounds = default.node_sound_leaves_defaults(),
 })
 
-minetest.register_craftitem("farming:orange_item", {
+minetest.register_craftitem("farming_plus:orange_item", {
 	description = "Orange",
 	inventory_image = "farming_orange.png",
 	on_use = minetest.item_eat(4),
 })
 
-farming:add_plant("farming:orange", {"farming:orange_1", "farming:orange_2", "farming:orange_3"}, 50, 20)
+farming:add_plant("farming_plus:orange", {"farming_plus:orange_1", "farming_plus:orange_2", "farming_plus:orange_3"}, 50, 20)

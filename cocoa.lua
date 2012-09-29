@@ -1,4 +1,4 @@
-minetest.register_node("farming:cocoa_sapling", {
+minetest.register_node("farming_plus:cocoa_sapling", {
 	description = "Cocoa Tree Sapling",
 	drawtype = "plantlike",
 	tiles = {"farming_cocoa_sapling.png"},
@@ -10,7 +10,7 @@ minetest.register_node("farming:cocoa_sapling", {
 	sounds = default.node_sound_defaults(),
 })
 
-minetest.register_node("farming:cocoa_leaves", {
+minetest.register_node("farming_plus:cocoa_leaves", {
 	drawtype = "allfaces_optional",
 	tiles = {"farming_banana_leaves.png"},
 	paramtype = "light",
@@ -19,7 +19,7 @@ minetest.register_node("farming:cocoa_leaves", {
 		max_items = 1,
 		items = {
 			{
-				items = {'farming:cocoa_sapling'},
+				items = {'farming_plus:cocoa_sapling'},
 				rarity = 20,
 			},
 		}
@@ -28,11 +28,11 @@ minetest.register_node("farming:cocoa_leaves", {
 })
 
 minetest.register_abm({
-	nodenames = {"farming:cocoa_sapling"},
+	nodenames = {"farming_plus:cocoa_sapling"},
 	interval = 60,
 	chance = 20,
 	action = function(pos, node)
-		farming:generate_tree(pos, "default:tree", "farming:cocoa_leaves", {"default:sand", "default:desert_sand"}, {["farming:cocoa"]=20})
+		farming:generate_tree(pos, "default:tree", "farming_plus:cocoa_leaves", {"default:sand", "default:desert_sand"}, {["farming_plus:cocoa"]=20})
 	end
 })
 
@@ -43,11 +43,11 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
 	local tmp = {x=(maxp.x-minp.x)/2+minp.x, y=(maxp.y-minp.y)/2+minp.y, z=(maxp.z-minp.z)/2+minp.z}
 	local pos = minetest.env:find_node_near(tmp, maxp.x-minp.x, {"default:desert_sand"})
 	if pos ~= nil then
-		farming:generate_tree(pos, "default:tree", "farming:cocoa_leaves", {"default:sand", "default:desert_sand"}, {["farming:cocoa"]=20})
+		farming:generate_tree({x=pos.x, y=pos.y+1, z=pos.z}, "default:tree", "farming_plus:cocoa_leaves", {"default:sand", "default:desert_sand"}, {["farming_plus:cocoa"]=20})
 	end
 end)
 
-minetest.register_node("farming:cocoa", {
+minetest.register_node("farming_plus:cocoa", {
 	description = "Cocoa",
 	tiles = {"farming_cocoa.png"},
 	visual_scale = 0.5,
@@ -61,13 +61,13 @@ minetest.register_node("farming:cocoa", {
 	sounds = default.node_sound_defaults(),
 })
 
-minetest.register_craftitem("farming:cocoa_bean", {
+minetest.register_craftitem("farming_plus:cocoa_bean", {
 	description = "Cocoa Bean",
 	inventory_image = "farming_cocoa_bean.png",
 })
 
 minetest.register_craft({
-	output = "farming:cocoa_bean 10",
+	output = "farming_plus:cocoa_bean 10",
 	type = "shapeless",
-	recipe = {"farming:cocoa"},
+	recipe = {"farming_plus:cocoa"},
 })

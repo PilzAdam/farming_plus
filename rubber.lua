@@ -1,4 +1,4 @@
-minetest.register_node("farming:rubber_sapling", {
+minetest.register_node("farming_plus:rubber_sapling", {
 	description = "Rubber Tree Sapling",
 	drawtype = "plantlike",
 	tiles = {"farming_rubber_sapling.png"},
@@ -10,7 +10,7 @@ minetest.register_node("farming:rubber_sapling", {
 	sounds = default.node_sound_defaults(),
 })
 
-minetest.register_node("farming:rubber_tree_full", {
+minetest.register_node("farming_plus:rubber_tree_full", {
 	description = "Rubber Tree",
 	tiles = {"default_tree_top.png", "default_tree_top.png", "farming_rubber_tree_full.png"},
 	groups = {tree=1,snappy=1,choppy=2,oddly_breakable_by_hand=1,flammable=2},
@@ -23,13 +23,13 @@ minetest.register_node("farming:rubber_tree_full", {
 	end,
 	
 	after_destruct = function(pos, oldnode)
-		oldnode.name = "farming:rubber_tree_empty"
+		oldnode.name = "farming_plus:rubber_tree_empty"
 		minetest.env:set_node(pos, oldnode)
 	end
 })
 
 
-minetest.register_node("farming:rubber_tree_empty", {
+minetest.register_node("farming_plus:rubber_tree_empty", {
 	tiles = {"default_tree_top.png", "default_tree_top.png", "farming_rubber_tree_empty.png"},
 	groups = {tree=1,snappy=1,choppy=2,oddly_breakable_by_hand=1,flammable=2, not_in_creative_inventory=1},
 	drop = "default:tree",
@@ -37,16 +37,16 @@ minetest.register_node("farming:rubber_tree_empty", {
 })
 
 minetest.register_abm({
-	nodenames = {"farming:rubber_tree_empty"},
+	nodenames = {"farming_plus:rubber_tree_empty"},
 	interval = 60,
 	chance = 15,
 	action = function(pos, node)
-		node.name = "farming:rubber_tree_full"
+		node.name = "farming_plus:rubber_tree_full"
 		minetest.env:set_node(pos, node)
 	end
 })
 
-minetest.register_node("farming:rubber_leaves", {
+minetest.register_node("farming_plus:rubber_leaves", {
 	drawtype = "allfaces_optional",
 	visual_scale = 1.3,
 	tiles = {"default_leaves.png"},
@@ -56,7 +56,7 @@ minetest.register_node("farming:rubber_leaves", {
 		max_items = 1,
 		items = {
 			{
-				items = {'farming:rubber_sapling'},
+				items = {'farming_plus:rubber_sapling'},
 				rarity = 20,
 			},
 		}
@@ -65,11 +65,11 @@ minetest.register_node("farming:rubber_leaves", {
 })
 
 minetest.register_abm({
-	nodenames = {"farming:rubber_sapling"},
+	nodenames = {"farming_plus:rubber_sapling"},
 	interval = 60,
 	chance = 20,
 	action = function(pos, node)
-		farming:generate_tree(pos, "farming:rubber_tree_full", "farming:rubber_leaves", {"default:dirt", "default:dirt_with_grass"})
+		farming:generate_tree(pos, "farming_plus:rubber_tree_full", "farming_plus:rubber_leaves", {"default:dirt", "default:dirt_with_grass"})
 	end
 })
 
@@ -80,25 +80,25 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
 	local tmp = {x=(maxp.x-minp.x)/2+minp.x, y=(maxp.y-minp.y)/2+minp.y, z=(maxp.z-minp.z)/2+minp.z}
 	local pos = minetest.env:find_node_near(tmp, maxp.x-minp.x, {"default:dirt_with_grass"})
 	if pos ~= nil then
-		farming:generate_tree({x=pos.x, y=pos.y+1, z=pos.z}, "farming:rubber_tree_full", "farming:rubber_leaves", {"default:dirt", "default:dirt_with_grass"})
+		farming:generate_tree({x=pos.x, y=pos.y+1, z=pos.z}, "farming_plus:rubber_tree_full", "farming_plus:rubber_leaves", {"default:dirt", "default:dirt_with_grass"})
 	end
 end)
 
-minetest.register_craftitem("farming:bucket_rubber", {
+minetest.register_craftitem("farming_plus:bucket_rubber", {
 	description = "Bucket with Caoutchouc",
 	inventory_image = "farming_bucket_rubber.png",
 	stack_max = 1,
 })
 
 local bucket_tmp = {
-	source = "farming:rubber_tree_full",
-	itemname = "farming:bucket_rubber"
+	source = "farming_plus:rubber_tree_full",
+	itemname = "farming_plus:bucket_rubber"
 }
-bucket.liquids["farming:rubber_tree_full"] = bucket_tmp
+bucket.liquids["farming_plus:rubber_tree_full"] = bucket_tmp
 
 -- ========= FUEL =========
 minetest.register_craft({
 	type = "fuel",
-	recipe = "farming:rubber_sapling",
+	recipe = "farming_plus:rubber_sapling",
 	burntime = 10
 })
