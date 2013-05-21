@@ -1,4 +1,2 @@
 default
-bucket
-wool
 farming
