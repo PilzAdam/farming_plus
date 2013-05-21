@@ -158,6 +158,14 @@ end
 minetest.register_alias("farming:cotton", "farming:cotton_3")
 minetest.register_alias("farming:wheat_harvested", "farming:wheat")
 minetest.register_alias("farming:dough", "farming:flour")
+minetest.register_abm({
+	nodenames = {"farming:wheat"},
+	interval = 1,
+	chance = 1,
+	action = function(pos)
+		minetest.env:set_node(pos, {name="farming:wheat_8"})
+	end,
+})
 
 -- ========= STRAWBERRIES =========
 dofile(minetest.get_modpath("farming_plus").."/strawberries.lua")
