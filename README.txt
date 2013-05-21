@@ -1,30 +1,5 @@
-===FARMING MOD for MINETEST-C55===
+===FARMING_PLUS MOD for MINETEST===
 by PilzAdam
-
-Extended Version
-
-Introduction: 
-This mod adds farming to Minetest.
-
-How to install:
-Unzip the archive an place it in minetest-base-directory/mods/minetest/
-if you have a windows client or a linux run-in-place client. If you have
-a linux system-wide instalation place it in ~/.minetest/mods/minetest/.
-If you want to install this mod only in one world create the folder
-worldmods/ in your worlddirectory.
-For further information or help see:
-http://wiki.minetest.com/wiki/Installing_Mods
-
-How to use the mod:
-Craft a wood/stone/steel hoe:
-material	material
-			stick
-			stick
-Dig dirt with it and turn it to soil. Water the soil and plant the seeds
-you get by digging dirt with the hoe. Wait until the seeds are seasoned
-and harvest them. When harvesting you will get the product and new seeds.
-For further information or help see:
-http://minetest.net/forum/viewtopic.php?id=2787
 
 License:
 Sourcecode: WTFPL (see below)
