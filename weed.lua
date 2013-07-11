@@ -12,7 +12,7 @@ minetest.register_node(":farming:weed", {
 			{-0.5, -0.5, -0.5, 0.5, -0.5+4/16, 0.5}
 		},
 	},
-	groups = {snappy=3, flammable=2},
+	groups = {snappy=3, flammable=2,plant=1},
 	sounds = default.node_sound_leaves_defaults()
 })
 
