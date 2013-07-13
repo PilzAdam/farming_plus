@@ -138,6 +138,7 @@ farming.seeds = {
 	["farming_plus:tomato_seed"]=30,
 	["farming_plus:orange_seed"]=30,
 	["farming_plus:carrot_seed"]=30,
+	["farming_plus:hops_seed"]=60,
 }
 
 -- ========= ALIASES FOR FARMING MOD BY SAPIER =========
@@ -196,3 +197,6 @@ dofile(minetest.get_modpath("farming_plus").."/pumpkin.lua")
 
 -- ========= WEED =========
 dofile(minetest.get_modpath("farming_plus").."/weed.lua")
+
+-- ========= HOPS =========
+dofile(minetest.get_modpath("farming_plus").."/hops.lua")
