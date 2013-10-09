@@ -24,7 +24,7 @@ minetest.register_node("farming_plus:tomato_1", {
 			{-0.5, -0.5, -0.5, 0.5, -0.5+5/16, 0.5}
 		},
 	},
-	groups = {snappy=3, flammable=2, not_in_creative_inventory=1},
+	groups = {snappy=3, flammable=2, not_in_creative_inventory=1, plant=1},
 	sounds = default.node_sound_leaves_defaults(),
 })
 
@@ -40,7 +40,7 @@ minetest.register_node("farming_plus:tomato_2", {
 			{-0.5, -0.5, -0.5, 0.5, -0.5+8/16, 0.5}
 		},
 	},
-	groups = {snappy=3, flammable=2, not_in_creative_inventory=1},
+	groups = {snappy=3, flammable=2, not_in_creative_inventory=1, plant=1},
 	sounds = default.node_sound_leaves_defaults(),
 })
 
@@ -56,7 +56,7 @@ minetest.register_node("farming_plus:tomato_3", {
 			{-0.5, -0.5, -0.5, 0.5, -0.5+13/16, 0.5}
 		},
 	},
-	groups = {snappy=3, flammable=2, not_in_creative_inventory=1},
+	groups = {snappy=3, flammable=2, not_in_creative_inventory=1, plant=1},
 	sounds = default.node_sound_leaves_defaults(),
 })
 
@@ -76,7 +76,7 @@ minetest.register_node("farming_plus:tomato", {
 			{ items = {'farming_plus:tomato_item'}, rarity = 5 }
 		}
 	},
-	groups = {snappy=3, flammable=2, not_in_creative_inventory=1},
+	groups = {snappy=3, flammable=2, not_in_creative_inventory=1, plant=1},
 	sounds = default.node_sound_leaves_defaults(),
 })
 

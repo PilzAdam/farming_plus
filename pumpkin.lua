@@ -30,7 +30,7 @@ minetest.register_node(":farming:pumpkin_1", {
 			{-0.2, -0.5, -0.2, 0.2, -0.1, 0.2}
 		},
 	},
-	groups = {choppy=2, oddly_breakable_by_hand=2, flammable=2, not_in_creative_inventory=1},
+	groups = {choppy=2, oddly_breakable_by_hand=2, flammable=2, not_in_creative_inventory=1, plant=1},
 	sounds = default.node_sound_wood_defaults(),
 })
 
@@ -52,7 +52,7 @@ minetest.register_node(":farming:pumpkin_2", {
 			{-0.35, -0.5, -0.35, 0.35, 0.2, 0.35}
 		},
 	},
-	groups = {choppy=2, oddly_breakable_by_hand=2, flammable=2, not_in_creative_inventory=1},
+	groups = {choppy=2, oddly_breakable_by_hand=2, flammable=2, not_in_creative_inventory=1, plant=1},
 	sounds = default.node_sound_wood_defaults(),
 })
 
@@ -60,7 +60,7 @@ minetest.register_node(":farming:pumpkin", {
 	description = "Pumpkin",
 	paramtype2 = "facedir",
 	tiles = {"farming_pumpkin_top.png", "farming_pumpkin_top.png", "farming_pumpkin_side.png", "farming_pumpkin_side.png", "farming_pumpkin_side.png", "farming_pumpkin_side.png"},
-	groups = {choppy=2, oddly_breakable_by_hand=2, flammable=2},
+	groups = {choppy=2, oddly_breakable_by_hand=2, flammable=2, plant=1},
 	sounds = default.node_sound_wood_defaults(),
 	
 	on_punch = function(pos, node, puncher)
@@ -112,7 +112,7 @@ minetest.register_node(":farming:big_pumpkin", {
 			{-1, -0.5, -1, 1, 1.5, 1}
 		}
 	},
-	groups = {choppy=1, oddly_breakable_by_hand=1, flammable=2},
+	groups = {choppy=1, oddly_breakable_by_hand=1, flammable=2, plant=1},
 	sounds = default.node_sound_wood_defaults(),
 	
 	after_place_node = function(pos, placer)
@@ -208,7 +208,7 @@ minetest.register_node(":farming:big_pumpkin_side", {
 			{0, 0, 0, 0, 0, 0}
 		}
 	},
-	groups = {not_in_creative_inventory=1},
+	groups = {not_in_creative_inventory=1, plant=1},
 })
 minetest.register_node(":farming:big_pumpkin_corner", {
 	paramtype = "light",
@@ -228,7 +228,7 @@ minetest.register_node(":farming:big_pumpkin_corner", {
 			{0, 0, 0, 0, 0, 0}
 		}
 	},
-	groups = {not_in_creative_inventory=1},
+	groups = {not_in_creative_inventory=1, plant=1},
 })
 
 minetest.register_node(":farming:big_pumpkin_top", {
@@ -241,7 +241,7 @@ minetest.register_node(":farming:big_pumpkin_top", {
 			{0, 0, 0, 0, 0, 0}
 		}
 	},
-	groups = {not_in_creative_inventory=1},
+	groups = {not_in_creative_inventory=1, plant=1},
 })
 
 minetest.register_craft({
