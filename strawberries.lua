@@ -24,7 +24,7 @@ minetest.register_node("farming_plus:strawberry_1", {
 			{-0.5, -0.5, -0.5, 0.5, -0.5+9/16, 0.5}
 		},
 	},
-	groups = {snappy=3, flammable=2, not_in_creative_inventory=1},
+	groups = {snappy=3, flammable=2, not_in_creative_inventory=1, plant=1},
 	sounds = default.node_sound_leaves_defaults(),
 })
 
@@ -40,7 +40,7 @@ minetest.register_node("farming_plus:strawberry_2", {
 			{-0.5, -0.5, -0.5, 0.5, -0.5+12/16, 0.5}
 		},
 	},
-	groups = {snappy=3, flammable=2, not_in_creative_inventory=1},
+	groups = {snappy=3, flammable=2, not_in_creative_inventory=1, plant=1},
 	sounds = default.node_sound_leaves_defaults(),
 })
 
@@ -56,7 +56,7 @@ minetest.register_node("farming_plus:strawberry_3", {
 			{-0.5, -0.5, -0.5, 0.5, -0.5+14/16, 0.5}
 		},
 	},
-	groups = {snappy=3, flammable=2, not_in_creative_inventory=1},
+	groups = {snappy=3, flammable=2, not_in_creative_inventory=1, plant=1},
 	sounds = default.node_sound_leaves_defaults(),
 })
 
@@ -76,7 +76,7 @@ minetest.register_node("farming_plus:strawberry", {
 			{ items = {'farming_plus:strawberry_item'}, rarity = 5 }
 		}
 	},
-	groups = {snappy=3, flammable=2, not_in_creative_inventory=1},
+	groups = {snappy=3, flammable=2, not_in_creative_inventory=1, plant=1},
 	sounds = default.node_sound_leaves_defaults(),
 })
 
