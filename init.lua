@@ -1,5 +1,3 @@
-farming = {}
-
 function farming:add_plant(full_grown, names, interval, chance)
 	minetest.register_abm({
 		nodenames = names,
