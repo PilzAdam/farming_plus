@@ -21,13 +21,13 @@ minetest.register_abm({
 	interval = 50,
 	chance = 10,
 	action = function(pos, node)
-		if minetest.env:find_node_near(pos, 4, {"farming:scarecrow", "farming:scarecrow_light"}) ~= nil then
+		if minetest.find_node_near(pos, 4, {"farming:scarecrow", "farming:scarecrow_light"}) ~= nil then
 			return
 		end
 		pos.y = pos.y+1
-		if minetest.env:get_node(pos).name == "air" then
+		if minetest.get_node(pos).name == "air" then
 			node.name = "farming:weed"
-			minetest.env:set_node(pos, node)
+			minetest.set_node(pos, node)
 		end
 	end
 })
