@@ -56,7 +56,7 @@ minetest.register_node("farming_plus:banana", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	walkable = false,
-	groups = {fleshy=3,dig_immediate=3,flammable=2},
+	groups = {fleshy=3,dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1},
 	sounds = default.node_sound_defaults(),
 	
 	on_use = minetest.item_eat(6),
