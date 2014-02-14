@@ -6,6 +6,10 @@ minetest.register_node("farming_plus:cocoa_sapling", {
 	wield_image = "farming_cocoa_sapling.png",
 	paramtype = "light",
 	walkable = false,
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.3, -0.5, -0.3, 0.3, 0.35, 0.3}
+	},
 	groups = {dig_immediate=3,flammable=2},
 	sounds = default.node_sound_defaults(),
 })
