@@ -1,4 +1,4 @@
--- Boilerplate to support localized strings if intllib mod is installed.
+-- Boilerplate to support localized strings if intllib mod is installed. 
 local S
 if (minetest.get_modpath("intllib")) then
   dofile(minetest.get_modpath("intllib").."/intllib.lua")
