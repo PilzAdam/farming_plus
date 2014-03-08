@@ -79,7 +79,7 @@ minetest.register_node(":farming:pumpkin", {
 farming:add_plant("farming:pumpkin", {"farming:pumpkin_1", "farming:pumpkin_2"}, 80, 20)
 
 minetest.register_node(":farming:pumpkin_face", {
-	description = "Pumpkin",
+	description = "Pumpkin Face",
 	paramtype2 = "facedir",
 	tiles = {"farming_pumpkin_top.png", "farming_pumpkin_top.png", "farming_pumpkin_side.png", "farming_pumpkin_side.png", "farming_pumpkin_side.png", "farming_pumpkin_face.png"},
 	groups = {choppy=2, oddly_breakable_by_hand=2, flammable=2, plant=1},
@@ -87,7 +87,7 @@ minetest.register_node(":farming:pumpkin_face", {
 })
 
 minetest.register_node(":farming:pumpkin_face_light", {
-	description = "Pumpkin",
+	description = "Pumpkin Face Light",
 	paramtype2 = "facedir",
 	light_source = LIGHT_MAX-2,
 	tiles = {"farming_pumpkin_top.png", "farming_pumpkin_top.png", "farming_pumpkin_side.png", "farming_pumpkin_side.png", "farming_pumpkin_side.png", "farming_pumpkin_face_light.png"},
@@ -354,7 +354,7 @@ minetest.register_craft({
 })
 
 minetest.register_node(":farming:scarecrow_light", {
-	description = "Scarecrow",
+	description = "Scarecrow Light",
 	paramtype = "light",
 	sunlight_propagates = true,
 	paramtype2 = "facedir",
