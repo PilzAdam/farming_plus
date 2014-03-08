@@ -1,5 +1,14 @@
+-- Boilerplate to support localized strings if intllib mod is installed.
+local S
+if (minetest.get_modpath("intllib")) then
+  dofile(minetest.get_modpath("intllib").."/intllib.lua")
+  S = intllib.Getter(minetest.get_current_modname())
+else
+  S = function ( s ) return s end
+end
+
 minetest.register_craftitem(":farming:pumpkin_seed", {
-	description = "Pumpkin Seed",
+	description = S("Pumpkin Seed"),
 	inventory_image = "farming_pumpkin_seed.png",
 	on_place = function(itemstack, placer, pointed_thing)
 		local above = minetest.env:get_node(pointed_thing.above)
@@ -57,7 +66,7 @@ minetest.register_node(":farming:pumpkin_2", {
 })
 
 minetest.register_node(":farming:pumpkin", {
-	description = "Pumpkin",
+	description = S("Pumpkin"),
 	paramtype2 = "facedir",
 	tiles = {"farming_pumpkin_top.png", "farming_pumpkin_top.png", "farming_pumpkin_side.png", "farming_pumpkin_side.png", "farming_pumpkin_side.png", "farming_pumpkin_side.png"},
 	groups = {choppy=2, oddly_breakable_by_hand=2, flammable=2, plant=1},
@@ -79,7 +88,7 @@ minetest.register_node(":farming:pumpkin", {
 farming:add_plant("farming:pumpkin", {"farming:pumpkin_1", "farming:pumpkin_2"}, 80, 20)
 
 minetest.register_node(":farming:pumpkin_face", {
-	description = "Pumpkin Face",
+	description = S("Pumpkin Face"),
 	paramtype2 = "facedir",
 	tiles = {"farming_pumpkin_top.png", "farming_pumpkin_top.png", "farming_pumpkin_side.png", "farming_pumpkin_side.png", "farming_pumpkin_side.png", "farming_pumpkin_face.png"},
 	groups = {choppy=2, oddly_breakable_by_hand=2, flammable=2, plant=1},
@@ -87,7 +96,7 @@ minetest.register_node(":farming:pumpkin_face", {
 })
 
 minetest.register_node(":farming:pumpkin_face_light", {
-	description = "Pumpkin Face Light",
+	description = S("Pumpkin Face Light"),
 	paramtype2 = "facedir",
 	light_source = LIGHT_MAX-2,
 	tiles = {"farming_pumpkin_top.png", "farming_pumpkin_top.png", "farming_pumpkin_side.png", "farming_pumpkin_side.png", "farming_pumpkin_side.png", "farming_pumpkin_face_light.png"},
@@ -103,7 +112,7 @@ minetest.register_craft({
 
 -- ========= BIG PUMPKIN =========
 minetest.register_node(":farming:big_pumpkin", {
-	description = "Big Pumpkin",
+	description = S("Big Pumpkin"),
 	paramtype2 = "facedir",
 	tiles = {"farming_pumpkin_big_side.png"},
 	selection_box = {
@@ -279,7 +288,7 @@ for j,list in ipairs(box2) do
 end
 
 minetest.register_node(":farming:scarecrow", {
-	description = "Scarecrow",
+	description = S("Scarecrow"),
 	paramtype = "light",
 	sunlight_propagates = true,
 	paramtype2 = "facedir",
@@ -354,7 +363,7 @@ minetest.register_craft({
 })
 
 minetest.register_node(":farming:scarecrow_light", {
-	description = "Scarecrow Light",
+	description = S("Scarecrow Light"),
 	paramtype = "light",
 	sunlight_propagates = true,
 	paramtype2 = "facedir",
@@ -412,14 +421,14 @@ minetest.register_craft({
 
 --===============
 minetest.register_craftitem(":farming:pumpkin_bread", {
-	description = "Pumpkin Bread",
+	description = S("Pumpkin Bread"),
 	inventory_image = "farming_bread_pumpkin.png",
 	stack_max = 1,
 	on_use = minetest.item_eat(8)
 })
 
 minetest.register_craftitem(":farming:pumpkin_flour", {
-	description = "Pumpkin Flour",
+	description = S("Pumpkin Flour"),
 	inventory_image = "farming_cake_mix_pumpkin.png",
 })
 minetest.register_alias("farming:pumpkin_cake_mix", "farming:pumpkin_flour")
