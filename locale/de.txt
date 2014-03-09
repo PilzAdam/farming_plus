@@ -22,15 +22,15 @@ Potato Seeds = Kartoffelsamen
 Potato = Kartoffel
 
 ### pumpkin.lua ###
-Pumpkin Seed = Kürbissamen
-Pumpkin = Kürbis
-Pumpkin Face = Kürbislaterne
-Pumpkin Face Light = leuchtende Kürbislaterne
-Big Pumpkin = Riesen-Kürbis
+Pumpkin Seed = Kuerbissamen
+Pumpkin = Kuerbis
+Pumpkin Face = Kuerbislaterne
+Pumpkin Face Light = leuchtende Kuerbislaterne
+Big Pumpkin = Riesen-Kuerbis
 Scarecrow = Vogelscheuche
 Scarecrow Light = leuchtende Vogelscheuche
-Pumpkin Bread = Kürbisbrot
-Pumpkin Flour = Kürbismehl
+Pumpkin Bread = Kuerbisbrot
+Pumpkin Flour = Kuerbismehl
 
 ### rhubarb.lua ###
 Rhubarb Seeds = Rhabarbersamen
