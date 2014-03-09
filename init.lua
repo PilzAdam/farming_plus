@@ -148,6 +148,29 @@ farming.seeds = {
 	["farming_plus:carrot_seed"]=30,
 }
 
+function farming:place_seed(itemstack, placer, pointed_thing, placenode)
+
+	-- Call on_rightclick if the pointed node defines it
+	if pointed_thing.type == "node" and placer and
+		not placer:get_player_control().sneak then
+		local n = minetest.get_node(pointed_thing.under)
+		local nn = n.name
+		if minetest.registered_nodes[nn] and minetest.registered_nodes[nn].on_rightclick then
+			return minetest.registered_nodes[nn].on_rightclick(pointed_thing.under, n,
+			placer, itemstack, pointed_thing) or itemstack, false
+		end
+	end
+
+	local above = minetest.env:get_node(pointed_thing.above)
+	if above.name == "air" then
+		above.name = placenode
+		minetest.env:set_node(pointed_thing.above, above)
+		itemstack:take_item(1)
+		return itemstack
+	end
+end
+
+
 -- ========= GENERATE PLANTS IN THE MAP =========
 minetest.register_on_generated(function(minp, maxp, seed)
         if maxp.y >= 2 and minp.y <= 0 then

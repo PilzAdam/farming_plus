@@ -2,13 +2,7 @@ minetest.register_craftitem("farming_plus:potato_seed", {
 	description = "Potato Seeds",
 	inventory_image = "farming_potato_seed.png",
 	on_place = function(itemstack, placer, pointed_thing)
-		local above = minetest.env:get_node(pointed_thing.above)
-		if above.name == "air" then
-			above.name = "farming_plus:potato_1"
-			minetest.env:set_node(pointed_thing.above, above)
-			itemstack:take_item(1)
-			return itemstack
-		end
+		return farming:place_seed(itemstack, placer, pointed_thing, "farming_plus:potato_1")
 	end
 })
 
