@@ -25,10 +25,10 @@ Potato = Kartoffel
 Pumpkin Seed = Kuerbissamen
 Pumpkin = Kuerbis
 Pumpkin Face = Kuerbislaterne
-Pumpkin Face Light = leuchtende Kuerbislaterne
+Pumpkin Face Light = Leuchtende Kuerbislaterne
 Big Pumpkin = Riesen-Kuerbis
 Scarecrow = Vogelscheuche
-Scarecrow Light = leuchtende Vogelscheuche
+Scarecrow Light = Leuchtende Vogelscheuche
 Pumpkin Bread = Kuerbisbrot
 Pumpkin Flour = Kuerbismehl
 
