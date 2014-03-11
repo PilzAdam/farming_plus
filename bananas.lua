@@ -1,5 +1,14 @@
+-- Boilerplate to support localized strings if intllib mod is installed.
+local S
+if (minetest.get_modpath("intllib")) then
+  dofile(minetest.get_modpath("intllib").."/intllib.lua")
+  S = intllib.Getter(minetest.get_current_modname())
+else
+  S = function ( s ) return s end
+end
+
 minetest.register_node("farming_plus:banana_sapling", {
-	description = "Banana Tree Sapling",
+	description = S("Banana Tree Sapling"),
 	drawtype = "plantlike",
 	tiles = {"farming_banana_sapling.png"},
 	inventory_image = "farming_banana_sapling.png",
@@ -48,7 +57,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
 end)
 
 minetest.register_node("farming_plus:banana", {
-	description = "Banana",
+	description = S("Banana"),
 	tiles = {"farming_banana.png"},
 	inventory_image = "farming_banana.png",
 	wield_image = "farming_banana.png",
