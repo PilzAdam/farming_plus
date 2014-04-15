@@ -1,5 +1,12 @@
-
 farming.registered_plants = {}
+
+-- Boilerplate to support localized strings if intllib mod is installed.
+if (minetest.get_modpath("intllib")) then
+	dofile(minetest.get_modpath("intllib").."/intllib.lua")
+	farming.S = intllib.Getter(minetest.get_current_modname())
+else
+	farming.S = function ( s ) return s end
+end
 
 function farming:add_plant(full_grown, names, interval, chance)
 	minetest.register_abm({
@@ -8,14 +15,14 @@ function farming:add_plant(full_grown, names, interval, chance)
 		chance = chance,
 		action = function(pos, node)
 			pos.y = pos.y-1
-			if minetest.env:get_node(pos).name ~= "farming:soil_wet" then
+			if minetest.get_node(pos).name ~= "farming:soil_wet" then
 				return
 			end
 			pos.y = pos.y+1
-			if not minetest.env:get_node_light(pos) then
+			if not minetest.get_node_light(pos) then
 				return
 			end
-			if minetest.env:get_node_light(pos) < 8 then
+			if minetest.get_node_light(pos) < 8 then
 				return
 			end
 			local step = nil
@@ -32,7 +39,7 @@ function farming:add_plant(full_grown, names, interval, chance)
 			if new_node.name == nil then
 				new_node.name = full_grown
 			end
-			minetest.env:set_node(pos, new_node)
+			minetest.set_node(pos, new_node)
 		end
 	})
 
@@ -46,7 +53,7 @@ end
 
 function farming:generate_tree(pos, trunk, leaves, underground, replacements)
 	pos.y = pos.y-1
-	local nodename = minetest.env:get_node(pos).name
+	local nodename = minetest.get_node(pos).name
 	local ret = true
 	for _,name in ipairs(underground) do
 		if nodename == name then
@@ -55,17 +62,17 @@ function farming:generate_tree(pos, trunk, leaves, underground, replacements)
 		end
 	end
 	pos.y = pos.y+1
-	if not minetest.env:get_node_light(pos) then
+	if not minetest.get_node_light(pos) then
 		return
 	end
-	if ret or minetest.env:get_node_light(pos) < 8 then
+	if ret or minetest.get_node_light(pos) < 8 then
 		return
 	end
 	
 	node = {name = ""}
 	for dy=1,4 do
 		pos.y = pos.y+dy
-		if minetest.env:get_node(pos).name ~= "air" then
+		if minetest.get_node(pos).name ~= "air" then
 			return
 		end
 		pos.y = pos.y-dy
@@ -73,7 +80,7 @@ function farming:generate_tree(pos, trunk, leaves, underground, replacements)
 	node.name = trunk
 	for dy=0,4 do
 		pos.y = pos.y+dy
-		minetest.env:set_node(pos, node)
+		minetest.set_node(pos, node)
 		pos.y = pos.y-dy
 	end
 	
@@ -91,39 +98,39 @@ function farming:generate_tree(pos, trunk, leaves, underground, replacements)
 				pos.z = pos.z+dz
 				
 				if dx == 0 and dz == 0 and dy==3 then
-					if minetest.env:get_node(pos).name == "air" and math.random(1, 5) <= 4 then
-						minetest.env:set_node(pos, node)
+					if minetest.get_node(pos).name == "air" and math.random(1, 5) <= 4 then
+						minetest.set_node(pos, node)
 						for name,rarity in pairs(replacements) do
 							if math.random(1, rarity) == 1 then
-								minetest.env:set_node(pos, {name=name})
+								minetest.set_node(pos, {name=name})
 							end
 						end
 					end
 				elseif dx == 0 and dz == 0 and dy==4 then
-					if minetest.env:get_node(pos).name == "air" and math.random(1, 5) <= 4 then
-						minetest.env:set_node(pos, node)
+					if minetest.get_node(pos).name == "air" and math.random(1, 5) <= 4 then
+						minetest.set_node(pos, node)
 						for name,rarity in pairs(replacements) do
 							if math.random(1, rarity) == 1 then
-								minetest.env:set_node(pos, {name=name})
+								minetest.set_node(pos, {name=name})
 							end
 						end
 					end
 				elseif math.abs(dx) ~= 2 and math.abs(dz) ~= 2 then
-					if minetest.env:get_node(pos).name == "air" then
-						minetest.env:set_node(pos, node)
+					if minetest.get_node(pos).name == "air" then
+						minetest.set_node(pos, node)
 						for name,rarity in pairs(replacements) do
 							if math.random(1, rarity) == 1 then
-								minetest.env:set_node(pos, {name=name})
+								minetest.set_node(pos, {name=name})
 							end
 						end
 					end
 				else
 					if math.abs(dx) ~= 2 or math.abs(dz) ~= 2 then
-						if minetest.env:get_node(pos).name == "air" and math.random(1, 5) <= 4 then
-							minetest.env:set_node(pos, node)
+						if minetest.get_node(pos).name == "air" and math.random(1, 5) <= 4 then
+							minetest.set_node(pos, node)
 							for name,rarity in pairs(replacements) do
 								if math.random(1, rarity) == 1 then
-								minetest.env:set_node(pos, {name=name})
+								minetest.set_node(pos, {name=name})
 								end
 							end
 						end
@@ -202,6 +209,50 @@ minetest.register_on_generated(function(minp, maxp, seed)
         end
 end)
 
+function farming:place_seed(itemstack, placer, pointed_thing, plantname)
+	local pt = pointed_thing
+	-- check if pointing at a node
+	if not pt then
+		return
+	end
+	if pt.type ~= "node" then
+		return
+	end
+
+	local under = minetest.get_node(pt.under)
+	local above = minetest.get_node(pt.above)
+
+	-- return if any of the nodes is not registered
+	if not minetest.registered_nodes[under.name] then
+		return
+	end
+	if not minetest.registered_nodes[above.name] then
+		return
+	end
+
+	-- check if pointing at the top of the node
+	if pt.above.y ~= pt.under.y+1 then
+		return
+	end
+
+	-- check if you can replace the node above the pointed node
+	if not minetest.registered_nodes[above.name].buildable_to then
+		return
+	end
+
+	-- check if pointing at soil
+	if minetest.get_item_group(under.name, "soil") <= 1 then
+		return
+	end
+
+	-- add the node and remove 1 item from the itemstack
+	minetest.add_node(pt.above, {name=plantname})
+	if not minetest.setting_getbool("creative_mode") then
+		itemstack:take_item()
+	end
+	return itemstack
+end
+
 -- ========= ALIASES FOR FARMING MOD BY SAPIER =========
 -- potatoe -> potatoe
 minetest.register_alias("farming:potatoe_node", "farming_plus:potatoe")
@@ -211,7 +262,7 @@ minetest.register_alias("farming:seed_potatoe", "farming_plus:potatoe_seed")
 for lvl = 1, 6, 1 do
 	minetest.register_entity(":farming:potatoe_lvl"..lvl, {
 		on_activate = function(self, staticdata)
-			minetest.env:set_node(self.object:getpos(), {name="farming_plus:potatoe_1"})
+			minetest.set_node(self.object:getpos(), {name="farming_plus:potatoe_1"})
 		end
 	})
 end
@@ -225,7 +276,7 @@ minetest.register_abm({
 	interval = 1,
 	chance = 1,
 	action = function(pos)
-		minetest.env:set_node(pos, {name="farming:wheat_8"})
+		minetest.set_node(pos, {name="farming:wheat_8"})
 	end,
 })
 

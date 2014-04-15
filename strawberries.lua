@@ -1,14 +1,12 @@
+-- main `S` code in init.lua
+local S
+S = farming.S
+
 minetest.register_craftitem("farming_plus:strawberry_seed", {
-	description = "Strawberry Seeds",
+	description = S("Strawberry Seeds"),
 	inventory_image = "farming_strawberry_seed.png",
 	on_place = function(itemstack, placer, pointed_thing)
-		local above = minetest.env:get_node(pointed_thing.above)
-		if above.name == "air" then
-			above.name = "farming_plus:strawberry_1"
-			minetest.env:set_node(pointed_thing.above, above)
-			itemstack:take_item(1)
-			return itemstack
-		end
+		return farming:place_seed(itemstack, placer, pointed_thing, "farming_plus:strawberry_1")
 	end
 })
 
@@ -81,7 +79,7 @@ minetest.register_node("farming_plus:strawberry", {
 })
 
 minetest.register_craftitem("farming_plus:strawberry_item", {
-	description = "Strawberry",
+	description = S("Strawberry"),
 	inventory_image = "farming_strawberry.png",
 	on_use = minetest.item_eat(2),
 })
