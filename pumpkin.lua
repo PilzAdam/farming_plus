@@ -63,7 +63,7 @@ minetest.register_node(":farming:pumpkin", {
 	
 	on_punch = function(pos, node, puncher)
 		local tool = puncher:get_wielded_item():get_name()
-		if tool and tool == "default:sword_wood" or tool == "default:sword_stone" or tool == "default:sword_steel" then
+		if tool and string.match(tool, "sword") then
 			node.name = "farming:pumpkin_face"
 			minetest.set_node(pos, node)
 			puncher:get_inventory():add_item("main", ItemStack("farming:pumpkin_seed"))
