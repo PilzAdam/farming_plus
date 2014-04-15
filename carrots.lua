@@ -1,11 +1,6 @@
--- Boilerplate to support localized strings if intllib mod is installed.
+-- main `S` code in init.lua
 local S
-if (minetest.get_modpath("intllib")) then
-	dofile(minetest.get_modpath("intllib").."/intllib.lua")
-	S = intllib.Getter(minetest.get_current_modname())
-else
-	S = function ( s ) return s end
-end
+S = farming.S
 
 minetest.register_craftitem("farming_plus:carrot_seed", {
 	description = S("Carrot Seeds"),

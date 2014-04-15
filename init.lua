@@ -1,5 +1,13 @@
 farming.registered_plants = {}
 
+-- Boilerplate to support localized strings if intllib mod is installed.
+if (minetest.get_modpath("intllib")) then
+	dofile(minetest.get_modpath("intllib").."/intllib.lua")
+	farming.S = intllib.Getter(minetest.get_current_modname())
+else
+	farming.S = function ( s ) return s end
+end
+
 function farming:add_plant(full_grown, names, interval, chance)
 	minetest.register_abm({
 		nodenames = names,
