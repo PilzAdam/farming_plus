@@ -1,14 +1,17 @@
+-- Boilerplate to support localized strings if intllib mod is installed.
+local S
+if (minetest.get_modpath("intllib")) then
+	dofile(minetest.get_modpath("intllib").."/intllib.lua")
+	S = intllib.Getter(minetest.get_current_modname())
+else
+	S = function ( s ) return s end
+end
+
 minetest.register_craftitem("farming_plus:rhubarb_seed", {
-	description = "Rhubarb Seeds",
+	description = S("Rhubarb Seeds"),
 	inventory_image = "farming_rhubarb_seed.png",
 	on_place = function(itemstack, placer, pointed_thing)
-		local above = minetest.env:get_node(pointed_thing.above)
-		if above.name == "air" then
-			above.name = "farming_plus:rhubarb_1"
-			minetest.env:set_node(pointed_thing.above, above)
-			itemstack:take_item(1)
-			return itemstack
-		end
+		return farming:place_seed(itemstack, placer, pointed_thing, "farming_plus:rhubarb_1")
 	end
 })
 
@@ -65,7 +68,7 @@ minetest.register_node("farming_plus:rhubarb", {
 })
 
 minetest.register_craftitem("farming_plus:rhubarb_item", {
-	description = "Rhubarb",
+	description = S("Rhubarb"),
 	inventory_image = "farming_rhubarb.png",
 })
 
