@@ -1,5 +1,9 @@
+-- main `S` code in init.lua
+local S
+S = farming.S
+
 minetest.register_craftitem("farming_plus:carrot_seed", {
-	description = "Carrot Seeds",
+	description = S("Carrot Seeds"),
 	inventory_image = "farming_carrot_seed.png",
 	on_place = function(itemstack, placer, pointed_thing)
 		return farming:place_seed(itemstack, placer, pointed_thing, "farming_plus:carrot_1")
@@ -75,7 +79,7 @@ minetest.register_node("farming_plus:carrot", {
 })
 
 minetest.register_craftitem("farming_plus:carrot_item", {
-	description = "Carrot",
+	description = S("Carrot"),
 	inventory_image = "farming_carrot.png",
 	on_use = minetest.item_eat(3),
 })

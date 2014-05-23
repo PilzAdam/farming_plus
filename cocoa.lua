@@ -1,11 +1,19 @@
+-- main `S` code in init.lua
+local S
+S = farming.S
+
 minetest.register_node("farming_plus:cocoa_sapling", {
-	description = "Cocoa Tree Sapling",
+	description = S("Cocoa Tree Sapling"),
 	drawtype = "plantlike",
 	tiles = {"farming_cocoa_sapling.png"},
 	inventory_image = "farming_cocoa_sapling.png",
 	wield_image = "farming_cocoa_sapling.png",
 	paramtype = "light",
 	walkable = false,
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.3, -0.5, -0.3, 0.3, 0.35, 0.3}
+	},
 	groups = {dig_immediate=3,flammable=2},
 	sounds = default.node_sound_defaults(),
 })
@@ -41,14 +49,14 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
 		return
 	end
 	local tmp = {x=(maxp.x-minp.x)/2+minp.x, y=(maxp.y-minp.y)/2+minp.y, z=(maxp.z-minp.z)/2+minp.z}
-	local pos = minetest.env:find_node_near(tmp, maxp.x-minp.x, {"default:desert_sand"})
+	local pos = minetest.find_node_near(tmp, maxp.x-minp.x, {"default:desert_sand"})
 	if pos ~= nil then
 		farming:generate_tree({x=pos.x, y=pos.y+1, z=pos.z}, "default:tree", "farming_plus:cocoa_leaves", {"default:sand", "default:desert_sand"}, {["farming_plus:cocoa"]=20})
 	end
 end)
 
 minetest.register_node("farming_plus:cocoa", {
-	description = "Cocoa",
+	description = S("Cocoa"),
 	tiles = {"farming_cocoa.png"},
 	visual_scale = 0.5,
 	inventory_image = "farming_cocoa.png",
@@ -57,7 +65,7 @@ minetest.register_node("farming_plus:cocoa", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	walkable = false,
-	groups = {fleshy=3,dig_immediate=3,flammable=2},
+	groups = {fleshy=3,dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1},
 	sounds = default.node_sound_defaults(),
 })
 
