@@ -70,7 +70,7 @@ minetest.register_node(":farming:pumpkin", {
 	end
 })
 
-farming:add_plant("farming:pumpkin", {"farming:pumpkin_1", "farming:pumpkin_2"}, 80, 20)
+farming:add_plant("farming:pumpkin", {"farming:pumpkin_1", "farming:pumpkin_2"}, 800, 20)
 
 minetest.register_node(":farming:pumpkin_face", {
 	description = "Pumpkin",

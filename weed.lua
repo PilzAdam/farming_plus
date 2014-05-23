@@ -18,7 +18,7 @@ minetest.register_node(":farming:weed", {
 
 minetest.register_abm({
 	nodenames = {"farming:soil_wet", "farming:soil"},
-	interval = 50,
+	interval = 500,
 	chance = 10,
 	action = function(pos, node)
 		if minetest.env:find_node_near(pos, 4, {"farming:scarecrow", "farming:scarecrow_light"}) ~= nil then
