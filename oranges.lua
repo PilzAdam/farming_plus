@@ -84,4 +84,4 @@ minetest.register_craftitem("farming_plus:orange_item", {
 	on_use = minetest.item_eat(4),
 })
 
-farming:add_plant("farming_plus:orange", {"farming_plus:orange_1", "farming_plus:orange_2", "farming_plus:orange_3"}, 50, 20)
+farming:add_plant("farming_plus:orange", {"farming_plus:orange_1", "farming_plus:orange_2", "farming_plus:orange_3"}, 500, 20)

@@ -67,4 +67,4 @@ minetest.register_craftitem("farming_plus:rhubarb_item", {
 	inventory_image = "farming_rhubarb.png",
 })
 
-farming:add_plant("farming_plus:rhubarb", {"farming_plus:rhubarb_1", "farming_plus:rhubarb_2"}, 50, 20)
+farming:add_plant("farming_plus:rhubarb", {"farming_plus:rhubarb_1", "farming_plus:rhubarb_2"}, 500, 20)
