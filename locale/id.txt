@@ -1,0 +1,51 @@
+# Template
+
+### bananas.lua ###
+Banana Tree Sapling = Anak Pohon Pisang
+Banana = Pisang
+
+### carrots.lua ###
+Carrot Seeds = Benih Wortel
+Carrot = Wortel
+
+### cocoa.lua ###
+Cocoa Tree Sapling = Anak Pohon Kakao
+Cocoa = Kakao
+Cocoa Bean = Biji Kakao
+
+### oranges.lua ###
+Orange Seeds = Benih Jeruk
+Orange = Jeruk
+
+### potatoes.lua ###
+Potato Seeds = Benih Kentang
+Potato = Kentang
+
+### pumpkin.lua ###
+Pumpkin Seed = Benih Labu
+Pumpkin = Labu
+Pumpkin Face = Wajah Labu
+Pumpkin Face With Light = Wajah Labu Dengan Cahaya
+Big Pumpkin = Labu Besar
+Scarecrow = Orang - Orangan Sawah
+Scarecrow With Light = Orang - Orangan Sawah Dengan Cahaya
+Pumpkin Bread = Roti Labu
+Pumpkin Flour = Tepung Labu
+
+### rhubarb.lua ###
+#Rhubarb Seeds = Benih Klembak?
+#Rhubarb = Klembak?
+
+### strawberries.lua ###
+Strawberry Seeds = Benih Stroberi
+Strawberry = Stroberi
+
+### tomatoes.lua ###
+Tomato Seeds = Benih Tomat
+Tomato = Tomat
+
+### init.lua ###
+
+### weed.lua ###
+Weed = Rumpu Liar
+
