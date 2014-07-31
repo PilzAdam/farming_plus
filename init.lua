@@ -8,7 +8,7 @@ else
 	farming.S = function ( s ) return s end
 end
 
-function farming:add_plant(full_grown, names, interval, chance)
+function farming.add_plant(full_grown, names, interval, chance)
 	minetest.register_abm({
 		nodenames = names,
 		interval = interval,
@@ -51,7 +51,7 @@ function farming:add_plant(full_grown, names, interval, chance)
 	})
 end
 
-function farming:generate_tree(pos, trunk, leaves, underground, replacements)
+function farming.generate_tree(pos, trunk, leaves, underground, replacements)
 	pos.y = pos.y-1
 	local nodename = minetest.get_node(pos).name
 	local ret = true
@@ -210,7 +210,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
         end
 end)
 
-function farming:place_seed(itemstack, placer, pointed_thing, plantname)
+function farming.place_seed(itemstack, placer, pointed_thing, plantname)
 
 	-- Call on_rightclick if the pointed node defines it
 	if pointed_thing.type == "node" and placer and
@@ -254,12 +254,12 @@ function farming:place_seed(itemstack, placer, pointed_thing, plantname)
 	end
 
 	-- check if pointing at soil
-	if minetest.get_item_group(under.name, "soil") <= 1 then
+	if minetest.get_item_group(under.name, "soil") < 2 then
 		return
 	end
 
 	-- add the node and remove 1 item from the itemstack
-	minetest.add_node(pt.above, {name=plantname})
+	minetest.add_node(pt.above, {name=plantname, param2 = 1})
 	if not minetest.setting_getbool("creative_mode") then
 		itemstack:take_item()
 	end

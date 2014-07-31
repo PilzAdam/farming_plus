@@ -6,7 +6,7 @@ minetest.register_craftitem(":farming:pumpkin_seed", {
 	description = S("Pumpkin Seed"),
 	inventory_image = "farming_pumpkin_seed.png",
 	on_place = function(itemstack, placer, pointed_thing)
-		return farming:place_seed(itemstack, placer, pointed_thing, "farming:pumpkin_1")
+		return farming.place_seed(itemstack, placer, pointed_thing, "farming:pumpkin_1")
 	end
 })
 
@@ -74,7 +74,7 @@ minetest.register_node(":farming:pumpkin", {
 	end
 })
 
-farming:add_plant("farming:pumpkin", {"farming:pumpkin_1", "farming:pumpkin_2"}, 80, 20)
+farming.add_plant("farming:pumpkin", {"farming:pumpkin_1", "farming:pumpkin_2"}, 80, 20)
 
 minetest.register_node(":farming:pumpkin_face", {
 	description = S("Pumpkin Face"),

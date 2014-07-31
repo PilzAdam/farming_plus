@@ -6,7 +6,7 @@ minetest.register_craftitem("farming_plus:tomato_seed", {
 	description = S("Tomato Seeds"),
 	inventory_image = "farming_tomato_seed.png",
 	on_place = function(itemstack, placer, pointed_thing)
-		return farming:place_seed(itemstack, placer, pointed_thing, "farming_plus:tomato_1")
+		return farming.place_seed(itemstack, placer, pointed_thing, "farming_plus:tomato_1")
 	end
 })
 
@@ -84,4 +84,4 @@ minetest.register_craftitem("farming_plus:tomato_item", {
 	on_use = minetest.item_eat(4),
 })
 
-farming:add_plant("farming_plus:tomato", {"farming_plus:tomato_1", "farming_plus:tomato_2", "farming_plus:tomato_3"}, 50, 20)
+farming.add_plant("farming_plus:tomato", {"farming_plus:tomato_1", "farming_plus:tomato_2", "farming_plus:tomato_3"}, 50, 20)

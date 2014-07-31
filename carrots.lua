@@ -6,7 +6,7 @@ minetest.register_craftitem("farming_plus:carrot_seed", {
 	description = S("Carrot Seeds"),
 	inventory_image = "farming_carrot_seed.png",
 	on_place = function(itemstack, placer, pointed_thing)
-		return farming:place_seed(itemstack, placer, pointed_thing, "farming_plus:carrot_1")
+		return farming.place_seed(itemstack, placer, pointed_thing, "farming_plus:carrot_1")
 	end
 })
 
@@ -84,4 +84,4 @@ minetest.register_craftitem("farming_plus:carrot_item", {
 	on_use = minetest.item_eat(3),
 })
 
-farming:add_plant("farming_plus:carrot", {"farming_plus:carrot_1", "farming_plus:carrot_2", "farming_plus:carrot_3"}, 50, 20)
+farming.add_plant("farming_plus:carrot", {"farming_plus:carrot_1", "farming_plus:carrot_2", "farming_plus:carrot_3"}, 50, 20)
