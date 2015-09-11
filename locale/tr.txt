@@ -1,0 +1,50 @@
+# Türkçe çeviri Mahmutelmas06@hotmail.com
+
+### bananas.lua ###
+Banana Tree Sapling = Muz ağacı fidanı
+Banana = Muz
+
+### carrots.lua ###
+Carrot Seeds = Havuç Tohumu
+Carrot = Havuç
+
+### cocoa.lua ###
+Cocoa Tree Sapling = Kakao ağacı fidanı
+Cocoa = Kakao
+Cocoa Bean = Kakao çekirdeği
+
+### oranges.lua ###
+Orange Seeds = Portakal çekirdeği
+Orange = Portakal
+
+### potatoes.lua ###
+Potato Seeds = Patates tohumu
+Potato = Patetes
+
+### pumpkin.lua ###
+Pumpkin Seed = Balkabağı çekirdeği
+Pumpkin = Balkabağı
+Pumpkin Face = Balkabağı suratı
+Pumpkin Face With Light = Işıklı balkabağı suratı
+Big Pumpkin = Büyük balkabağı
+Scarecrow = Korkuluk
+Scarecrow With Light = Işıklı korkuluk
+Pumpkin Bread = Balkabağı ekmeği
+Pumpkin Flour = Balkabağı unu
+
+### rhubarb.lua ###
+Rhubarb Seeds = Ravent tohumu
+Rhubarb = Ravent
+
+### strawberries.lua ###
+Strawberry Seeds = Çilek tohumu
+Strawberry = Çilek
+
+### tomatoes.lua ###
+Tomato Seeds = Domates çekirdeği
+Tomato = Domates
+
+### init.lua ###
+
+### weed.lua ###
+Weed = Ot
