@@ -93,12 +93,45 @@ minetest.register_node(":farming:pumpkin_face_light", {
 	sounds = default.node_sound_wood_defaults(),
 })
 
+--recipes
+
 minetest.register_craft({
 	type = "shapeless",
 	output = "farming:pumpkin_face_light",
 	recipe = {"farming:pumpkin_face", "default:torch"}
 })
 
+minetest.register_craft({
+	type = "shapeless",
+	output = "farming:pumpkin_seed 4",
+	recipe = {"farming:pumpkin"}
+})
+
+-- cutting_tools
+
+cutting_tools = {
+	"default:axe_bronze",
+	"default:axe_diamond",
+	"default:axe_mese",
+	"default:axe_steel",
+	"glooptest:axe_alatro",
+	"glooptest:axe_arol",
+	"moreores:axe_mithril",
+	"moreores:axe_silver",
+	"titanium:axe",
+	"building_blocks:knife",
+}
+for i,line in ipairs(cutting_tools) do 
+	local tools= cutting_tools[i]
+		minetest.register_craft({
+			type = "shapeless",
+			output = "farming:pumpkin_face",
+			recipe = {"farming:pumpkin",tools},
+			replacements = {
+				{ tools, tools },
+			}
+	})
+end
 -- ========= BIG PUMPKIN =========
 minetest.register_node(":farming:big_pumpkin", {
 	description = S("Big Pumpkin"),
