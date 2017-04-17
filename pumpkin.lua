@@ -352,7 +352,7 @@ minetest.register_craft({
 })
 
 minetest.register_node(":farming:scarecrow_light", {
-	description = S("Scarecrow With light"),
+	description = S("Scarecrow With Light"),
 	paramtype = "light",
 	sunlight_propagates = true,
 	paramtype2 = "facedir",
