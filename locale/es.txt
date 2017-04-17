@@ -1,0 +1,51 @@
+# Traducido por Carlos Barraza
+
+### bananas.lua ###
+Banana Tree Sapling = Retoño de arbol de platano
+Banana = Platano
+
+### carrots.lua ###
+Carrot Seeds = Semillas de zanahoria
+Carrot = Zanahoria
+
+### cocoa.lua ###
+Cocoa Tree Sapling = Retoño de arbol de Cacao
+Cocoa = Cacao
+Cocoa Bean = Grano de Cacao
+
+### oranges.lua ###
+Orange Seeds = Semillas de Naranja
+Orange = Naranja
+
+### potatoes.lua ###
+Potato Seeds = Semillas de Papa
+Potato = Papa
+
+### pumpkin.lua ###
+Pumpkin Seed = Semillas de Calabaza
+Pumpkin = Calabaza
+Pumpkin Face = Cara de Calabaza
+Pumpkin Face With Light = Cara de Calabaza con luz
+Big Pumpkin = Calabaza Grande
+Scarecrow = Espantapajaro
+Scarecrow With Light = Espantapajaro con luz
+Pumpkin Bread = Pan de Calabaza
+Pumpkin Flour = Harina de Calabaza
+
+### rhubarb.lua ###
+Rhubarb Seeds = Semillas de Ruibarbo
+Rhubarb = Ruibarbo
+
+### strawberries.lua ###
+Strawberry Seeds = Semillas de Frutilla
+Strawberry = Frutilla
+
+### tomatoes.lua ###
+Tomato Seeds = Semillas de Tomate
+Tomato = Tomate
+
+### init.lua ###
+
+### weed.lua ###
+Weed = Hierba
+
