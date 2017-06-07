@@ -281,7 +281,6 @@ for lvl = 1, 6, 1 do
 end
 
 
-minetest.register_alias("farming:cotton", "farming:cotton_3")
 minetest.register_alias("farming:wheat_harvested", "farming:wheat")
 minetest.register_alias("farming:dough", "farming:flour")
 minetest.register_abm({
