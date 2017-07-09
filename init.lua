@@ -1,9 +1,13 @@
 farming.registered_plants = {}
 
 -- Boilerplate to support localized strings if intllib mod is installed.
-if (minetest.get_modpath("intllib")) then
+if (minetest.global_exists("intllib")) then
 	dofile(minetest.get_modpath("intllib").."/intllib.lua")
-	farming.S = intllib.Getter(minetest.get_current_modname())
+	if intllib.make_gettext_pair then
+		farming.S = intllib.make_gettext_pair(minetest.get_current_modname())
+	else
+		farming.S = intllib.Getter(minetest.get_current_modname())
+	end
 else
 	farming.S = function ( s ) return s end
 end
