@@ -1,0 +1,50 @@
+# french
+
+### bananas.lua ###
+Banana Tree Sapling = Pousse de bananier
+Banana = Banane
+
+### carrots.lua ###
+Carrot Seeds = Graines de carottes
+Carrot = Carotte
+
+### cocoa.lua ###
+Cocoa Tree Sapling = Pousse de cacaotier
+Cocoa = Cacao
+Cocoa Bean = Fève de cacao
+
+### oranges.lua ###
+Orange Seeds = Graines d'oranger
+Orange = Orange
+
+### potatoes.lua ###
+Potato Seeds = Graines de pomme de terre
+Potato = Pomme de terre
+
+### pumpkin.lua ###
+Pumpkin Seed = Graines de citrouille
+Pumpkin = Citrouille
+Pumpkin Face = Face de citrouille
+Pumpkin Face With Light = Face de citrouille avec torche
+Big Pumpkin = Grande citrouille
+Scarecrow = Épouvantail
+Scarecrow With Light = Épouvantail avec torche
+Pumpkin Bread = Pain à la citrouille
+Pumpkin Flour = Farine de citrouille
+
+### rhubarb.lua ###
+Rhubarb Seeds = Graines de rhubarbe
+Rhubarb = Rhubarbe
+
+### strawberries.lua ###
+Strawberry Seeds = Graines de fraise
+Strawberry = Fraise
+
+### tomatoes.lua ###
+Tomato Seeds = Graines de tomate
+Tomato = Tomate
+
+### init.lua ###
+
+### weed.lua ###
+Weed = Mauvaise herbe
