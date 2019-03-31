@@ -1,0 +1,51 @@
+# Translation by mat9117
+
+### bananas.lua ###
+Banana Tree Sapling = Sadzonka bananowca
+Banana = Banan
+
+### carrots.lua ###
+Carrot Seeds = Nasiona marchwi 
+Carrot = Marchew
+
+### cocoa.lua ###
+Cocoa Tree Sapling = Sadzonka kakaowca 
+Cocoa = Kakao
+Cocoa Bean = Ziarno kakao
+
+### oranges.lua ###
+Orange Seeds = Nasiona pomarańczy
+Orange = Pomarańcza
+
+### potatoes.lua ###
+Potato Seeds = Nasiona ziemniaka
+Potato = Ziemniak
+
+### pumpkin.lua ###
+Pumpkin Seed = Nasiono dynii
+Pumpkin = Dynia
+Pumpkin Face = Dyniowa twarz
+Pumpkin Face With Light = Świecąca dyniowa twarz
+Big Pumpkin = Duża dynia
+Scarecrow = Strach na wróble
+Scarecrow With Light = Świecący strach na wróble
+Pumpkin Bread = Dyniowy chleb
+Pumpkin Flour = Dyniowa mąka
+
+### rhubarb.lua ###
+Rhubarb Seeds = Nasiona rabarbaru
+Rhubarb = Rabarbar
+
+### strawberries.lua ###
+Strawberry Seeds = Nasiona truskawki 
+Strawberry = Truskawka
+
+### tomatoes.lua ###
+Tomato Seeds = Nasiona pomidora
+Tomato = Pomidor 
+
+### init.lua ###
+
+### weed.lua ###
+Weed = Chwast
+
