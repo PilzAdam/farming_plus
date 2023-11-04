@@ -8,6 +8,7 @@ else
 	farming.S = function ( s ) return s end
 end
 
+--adds a function for adding a plant to the game
 function farming.add_plant(full_grown, names, interval, chance)
 	minetest.register_abm({
 		nodenames = names,
@@ -51,6 +52,7 @@ function farming.add_plant(full_grown, names, interval, chance)
 	})
 end
 
+--adds a function for generating a Tree
 function farming.generate_tree(pos, trunk, leaves, underground, replacements)
 	pos.y = pos.y-1
 	local nodename = minetest.get_node(pos).name
@@ -145,6 +147,7 @@ function farming.generate_tree(pos, trunk, leaves, underground, replacements)
 	end
 end
 
+--Tabelle named `farming.seeds`, to save all seed types and there data.
 farming.seeds = {
 	["farming:pumpkin_seed"]=60,
 	["farming_plus:strawberry_seed"]=30,
@@ -209,6 +212,8 @@ minetest.register_on_generated(function(minp, maxp, seed)
                 end
         end
 end)
+
+--adds the function to set seeds on a node
 
 function farming.place_seed(itemstack, placer, pointed_thing, plantname)
 
@@ -280,6 +285,7 @@ for lvl = 1, 6, 1 do
 	})
 end
 
+-- registering of the aliases.
 
 minetest.register_alias("farming:cotton", "farming:cotton_3")
 minetest.register_alias("farming:wheat_harvested", "farming:wheat")

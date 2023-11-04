@@ -1,29 +1,41 @@
--- main `S` code in init.lua
+-- Hauptcode für 'S' in init.lua
 local S
-S = farming.S
 
+-- Überprüfe, ob die Variablen 'farming' und 'farming.S' existieren
+if farming and farming.S then
+    -- Wenn sie existieren, weise 'farming.S' der Variable 'S' zu
+    S = farming.S
+else
+    -- Wenn nicht, erstelle eine Dummy-Funktion für 'S'
+    S = function (s) return s end
+    -- Gib eine Warnmeldung aus
+    print("Warnung: farming.S ist nil, es wird stattdessen eine Dummy-Funktion verwendet.")
+end
+
+-- Registriere den Banana Tree Sapling (Banana-Baum Setzling)
 minetest.register_node("farming_plus:banana_sapling", {
-	description = S("Banana Tree Sapling"),
+	description = S("Banana Tree Sapling"),  -- Beschreibung des Setzlings
 	drawtype = "plantlike",
-	tiles = {"farming_banana_sapling.png"},
-	inventory_image = "farming_banana_sapling.png",
-	wield_image = "farming_banana_sapling.png",
+	tiles = {"farming_banana_sapling.png"},  -- Textur für den Setzling
+	inventory_image = "farming_banana_sapling.png",  -- Bild für den Setzling im Inventar
+	wield_image = "farming_banana_sapling.png",  -- Bild für den Setzling beim Halten
 	paramtype = "light",
 	walkable = false,
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.3, -0.5, -0.3, 0.3, 0.35, 0.3}
 	},
-	groups = {dig_immediate=3,flammable=2},
-	sounds = default.node_sound_defaults(),
+	groups = {dig_immediate=3, flammable=2},  -- Gruppen, zu denen der Setzling gehört
+	sounds = default.node_sound_defaults(),  -- Klangeffekte für den Setzling
 })
 
+-- Registriere die Banana Leaves (Banana-Blätter)
 minetest.register_node("farming_plus:banana_leaves", {
 	drawtype = "allfaces_optional",
-	tiles = {"farming_banana_leaves.png"},
+	tiles = {"farming_banana_leaves.png"},  -- Textur für die Banana-Blätter
 	paramtype = "light",
-	groups = {snappy=3, leafdecay=3, flammable=2, not_in_creative_inventory=1},
- 	drop = {
+	groups = {snappy=3, leafdecay=3, flammable=2, not_in_creative_inventory=1},  -- Gruppen für die Banana-Blätter
+	drop = {
 		max_items = 1,
 		items = {
 			{
@@ -32,9 +44,10 @@ minetest.register_node("farming_plus:banana_leaves", {
 			},
 		}
 	},
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = default.node_sound_leaves_defaults(),  -- Klangeffekte für die Banana-Blätter
 })
 
+-- Registriere einen ABM (Automatic Block Modifier) für das Wachstum der Banana-Bäume
 minetest.register_abm({
 	nodenames = {"farming_plus:banana_sapling"},
 	interval = 60,
@@ -44,6 +57,7 @@ minetest.register_abm({
 	end
 })
 
+-- Registriere eine Funktion, die auf der Generierung der Welt basiert und zufällig Banana-Bäume erzeugt
 minetest.register_on_generated(function(minp, maxp, blockseed)
 	if math.random(1, 100) > 5 then
 		return
@@ -55,17 +69,19 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
 	end
 end)
 
+-- Registriere die Banana (Banane) als Node
 minetest.register_node("farming_plus:banana", {
-	description = S("Banana"),
-	tiles = {"farming_banana.png"},
-	inventory_image = "farming_banana.png",
-	wield_image = "farming_banana.png",
+	description = S("Banana"),  -- Beschreibung der Banane
+	tiles = {"farming_banana.png"},  -- Textur für die Banane
+	inventory_image = "farming_banana.png",  -- Bild für die Banane im Inventar
+	wield_image = "farming_banana.png",  -- Bild für die Banane beim Halten
 	drawtype = "torchlike",
 	paramtype = "light",
 	sunlight_propagates = true,
 	walkable = false,
-	groups = {fleshy=3,dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1},
-	sounds = default.node_sound_defaults(),
-	
+	groups = {fleshy=3, dig_immediate=3, flammable=2, leafdecay=3, leafdecay_drop=1},  -- Gruppen für die Banane
+	sounds = default.node_sound_defaults(),  -- Klangeffekte für die Banane
+
+	-- Funktion für den Verzehr der Banane
 	on_use = minetest.item_eat(6),
 })
