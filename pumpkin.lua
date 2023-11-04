@@ -304,4 +304,205 @@ for j,list in ipairs(box2) do
     box2[j] = list
 end
 
-minetest.register_node
+minetest.register_node(":farming:scarecrow", {
+	description = S("Scarecrow"),
+	paramtype = "light",
+	sunlight_propagates = true,
+	paramtype2 = "facedir",
+	tiles = {"farming_scarecrow_top.png", "farming_scarecrow_top.png", "farming_scarecrow_side.png", "farming_scarecrow_side.png", "farming_scarecrow_side.png", "farming_scarecrow_front.png"},
+	drawtype = "nodebox",
+	node_box = {
+		type = "fixed",
+		fixed = box2
+	},
+	selection_box = {
+		type = "fixed",
+		fixed = {
+			{-12/16, -1.5, -0.5, 12/16, 0.5, 0.5}
+		}
+	},
+	groups = {choppy=2, oddly_breakable_by_hand=2, flammable=2},
+
+	after_place_node = function(pos, placer)
+		local node = minetest.get_node(pos)
+		local param2 = node.param2
+		pos.y = pos.y+1
+		if minetest.get_node(pos).name ~= "air" then
+			pos.y = pos.y-1
+			minetest.remove_node(pos)
+			minetest.after(0.1, function(placer)
+				local inv = placer:get_inventory()
+				local index = placer:get_wield_index()
+				inv:set_stack("main", index, ItemStack("farming:scarecrow"))
+			end, placer)
+			return
+		end
+		minetest.set_node(pos, node)
+		pos.y = pos.y-1
+		node.name = "farming:scarecrow_bottom"
+		minetest.set_node(pos, node)
+	end,
+
+	after_destruct = function(pos, oldnode)
+		pos.y = pos.y-1
+		if minetest.get_node(pos).name == "farming:scarecrow_bottom" then
+			minetest.remove_node(pos)
+		end
+	end
+})
+
+minetest.register_node(":farming:scarecrow_bottom", {
+	paramtype = "light",
+	sunlight_propagates = true,
+	paramtype2 = "facedir",
+	tiles = {"default_wood.png"},
+	drawtype = "nodebox",
+	node_box = {
+		type = "fixed",
+		fixed = box1
+	},
+	groups = {not_in_creative_inventory=1},
+	selection_box = {
+		type = "fixed",
+		fixed = {
+			{0, 0, 0, 0, 0, 0}
+		}
+	}
+})
+
+minetest.register_craft({
+	output = "farming:scarecrow",
+	recipe = {
+		{"", "farming:pumpkin_face", "",},
+		{"default:stick", "default:stick", "default:stick",},
+		{"", "default:stick", "",}
+	}
+})
+
+minetest.register_node(":farming:scarecrow_light", {
+	description = S("Scarecrow With light"),
+	paramtype = "light",
+	sunlight_propagates = true,
+	paramtype2 = "facedir",
+	light_source = LIGHT_MAX-2,
+	tiles = {"farming_scarecrow_top.png", "farming_scarecrow_top.png", "farming_scarecrow_side.png", "farming_scarecrow_side.png", "farming_scarecrow_side.png", "farming_scarecrow_front_light.png"},
+	drawtype = "nodebox",
+	node_box = {
+		type = "fixed",
+		fixed = box2
+	},
+	selection_box = {
+		type = "fixed",
+		fixed = {
+			{-12/16, -1.5, -0.5, 12/16, 0.5, 0.5}
+		}
+	},
+	groups = {choppy=2, oddly_breakable_by_hand=2, flammable=2},
+
+	after_place_node = function(pos, placer)
+		local node = minetest.get_node(pos)
+		local param2 = node.param2
+		pos.y = pos.y+1
+		if minetest.get_node(pos).name ~= "air" then
+			pos.y = pos.y-1
+			minetest.remove_node(pos)
+			minetest.after(0.1, function(placer)
+				local inv = placer:get_inventory()
+				local index = placer:get_wield_index()
+				inv:set_stack("main", index, ItemStack("farming:scarecrow_light"))
+			end, placer)
+			return
+		end
+		minetest.set_node(pos, node)
+		pos.y = pos.y-1
+		node.name = "farming:scarecrow_bottom"
+		minetest.set_node(pos, node)
+	end,
+
+	after_destruct = function(pos, oldnode)
+		pos.y = pos.y-1
+		if minetest.get_node(pos).name == "farming:scarecrow_bottom" then
+			minetest.remove_node(pos)
+		end
+	end
+})
+
+minetest.register_craft({
+	output = "farming:scarecrow_light",
+	recipe = {
+		{"", "farming:pumpkin_face_light", "",},
+		{"default:stick", "default:stick", "default:stick",},
+		{"", "default:stick", "",}
+	}
+})
+
+--===============
+minetest.register_craftitem(":farming:pumpkin_bread", {
+	description = S("Pumpkin Bread"),
+	inventory_image = "farming_bread_pumpkin.png",
+	stack_max = 1,
+	on_use = minetest.item_eat(8)
+})
+
+minetest.register_craftitem(":farming:pumpkin_flour", {
+	description = "Pumpkin Flour",
+	inventory_image = "farming_cake_mix_pumpkin.png",
+})
+minetest.register_alias("farming:pumpkin_cake_mix", "farming:pumpkin_flour")
+
+minetest.register_craft({
+	output = "farming:pumpkin_flour",
+	type = "shapeless",
+	recipe = {"farming:flour", "farming:pumpkin"}
+})
+
+minetest.register_craft({
+	type = "cooking",
+	output = "farming:pumpkin_bread",
+	recipe = "farming:pumpkin_flour",
+	cooktime = 10
+})
+
+
+-- ========= FUEL =========
+minetest.register_craft({
+	type = "fuel",
+	recipe = "farming:pumpkin_seed",
+	burntime = 1
+})
+
+minetest.register_craft({
+	type = "fuel",
+	recipe = "farming:pumpkin",
+	burntime = 5
+})
+
+minetest.register_craft({
+	type = "fuel",
+	recipe = "farming:pumpkin_face",
+	burntime = 5
+})
+
+minetest.register_craft({
+	type = "fuel",
+	recipe = "farming:pumpkin_face_light",
+	burntime = 7
+})
+
+minetest.register_craft({
+	type = "fuel",
+	recipe = "farming:big_pumpkin",
+	burntime = 10
+})
+
+minetest.register_craft({
+	type = "fuel",
+	recipe = "farming:scarecrow",
+	burntime = 5
+})
+
+minetest.register_craft({
+	type = "fuel",
+	recipe = "farming:scarecrow_light",
+	burntime = 5
+})
